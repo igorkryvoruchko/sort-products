@@ -11,7 +11,8 @@ class SortProduct
         $this->products = $data->getData();
     }
 
-    public function sort(){
+    public function sort()
+    {
         $sorted = self::sortProducts($this->products);
 
         return $sorted;
@@ -22,7 +23,7 @@ class SortProduct
         $result = [];
         foreach ($products as $product) {
             if ($product['parent_id'] === $parentId) {
-                if ( $subcategory = self::sortProducts($products, $product['id']) ) {
+                if ($subcategory = self::sortProducts($products, $product['id'])) {
                     $product['subcategory'] = $subcategory;
                 }
                 $result[] = $product;
